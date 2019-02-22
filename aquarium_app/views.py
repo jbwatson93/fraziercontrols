@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from rest_framework import viewsets
 from .models import Projects
+from .serializers import *
 
 # Create your views here.
-def projectsIndex(request):
-    context = {'projects': Projects.objects.all()}
-    return render(request, 'aquarium_app/projectsIndex.html', context)
+class ProjectView(viewsets.ModelViewSet):
+    queryset = Projects.objects.all()
+    serializer_class = ProjectSerializer
