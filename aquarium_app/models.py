@@ -65,13 +65,72 @@ class Company(models.Model):
 #     class Meta:
 #         managed = False
 #         db_table = 'DAT_'
+class Projects(models.Model):
+    projectid = models.CharField(db_column='projectid', primary_key=True, max_length=5)  # Field name made lowercase.
+    startdate = models.DateField(db_column='startDate', blank=True, null=True)  # Field name made lowercase.
+    estimatedcompdate = models.DateField(db_column='estimatedCompDate', blank=True, null=True)  # Field name made lowercase.
+    projectname = models.CharField(db_column='projectName', max_length=50)  # Field name made lowercase.
+    description = models.TextField(blank=True, null=True)
+    creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
+    updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.
+    company = models.CharField(max_length=50, blank=True, null=True)
+    customerid = models.CharField(db_column='customerID', max_length=50, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Projects'
 
 
-# class Exhibits(models.Model):
+class Exhibits(models.Model):
+    exhibitID = models.CharField(db_column='exhibitID', primary_key=True, max_length=25)
+    exhibitName = models.CharField(db_column='exhibitName', max_length=50)
+    description = models.TextField(blank=True, null=True)
+    estimatedGal = models.IntegerField(blank=True, null=True)
+    desiredTurnover = models.IntegerField(blank=True, null=True)
+    systemFlow = models.IntegerField(blank=True, null=True)
+    creationDate = models.DateTimeField(db_column='creationDate', blank=True, null=True)
+    updateDate = models.DateTimeField(db_column='updateDate', blank=True, null=True)
+    type = models.CharField(max_length=25, blank=True, null=True)
+  
+	
+	
+
+    class Meta:
+        managed = False
+        db_table = 'Exhibits'
+
+class ProjectExhibits(models.Model):
+    exhibitid = models.ForeignKey(Exhibits, models.DO_NOTHING, db_column='exhibitID')  # Field name made lowercase.
+    projectid = models.ForeignKey('Projects', models.DO_NOTHING, db_column='projectID', primary_key=True)  # Field name made lowercase.
+    newconstruction = models.BooleanField(db_column='newConstruction', blank=True, null=True)  # Field name made lowercase.
+    creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
+    updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Project_Exhibits'
+        unique_together = (('projectid', 'exhibitid'),)
+
+
+
+
+# class Otheranalog(models.Model):
+#     componentid = models.CharField(db_column='componentID', primary_key=True, max_length=25)  # Field name made lowercase.
+#     exhibitid = models.ForeignKey(Exhibits, models.DO_NOTHING, db_column='exhibitID')  # Field name made lowercase.
+#     description = models.CharField(max_length=75, blank=True, null=True)
+#     size = models.CharField(max_length=50, blank=True, null=True)
+#     type = models.CharField(max_length=25, blank=True, null=True)
+#     location = models.CharField(max_length=25, blank=True, null=True)
+#     newitem = models.BooleanField(db_column='newItem')  # Field name made lowercase.
+#     olddescription = models.CharField(db_column='oldDescription', max_length=50, blank=True, null=True)  # Field name made lowercase.
+#     itemno = models.ForeignKey(Items, models.DO_NOTHING, db_column='itemNo', blank=True, null=True)  # Field name made lowercase.
+#     creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
+#     updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.
 
 #     class Meta:
 #         managed = False
-#         db_table = 'Exhibits'
+#         db_table = 'otherAnalog'
+
 
 
 # class Filter(models.Model):
@@ -198,33 +257,7 @@ class Company(models.Model):
 #         db_table = 'PSK'
 
 
-# class ProjectExhibits(models.Model):
-#     exhibitid = models.ForeignKey(Exhibits, models.DO_NOTHING, db_column='exhibitID')  # Field name made lowercase.
-#     projectid = models.ForeignKey('Projects', models.DO_NOTHING, db_column='projectID', primary_key=True)  # Field name made lowercase.
-#     newconstruction = models.BooleanField(db_column='newConstruction', blank=True, null=True)  # Field name made lowercase.
-#     creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
-#     updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.
 
-#     class Meta:
-#         managed = False
-#         db_table = 'Project_Exhibits'
-#         unique_together = (('projectid', 'exhibitid'),)
-
-
-class Projects(models.Model):
-    projectid = models.CharField(db_column='projectID', primary_key=True, max_length=5)  # Field name made lowercase.
-    startdate = models.DateField(db_column='startDate', blank=True, null=True)  # Field name made lowercase.
-    estimatedcompdate = models.DateField(db_column='estimatedCompDate', blank=True, null=True)  # Field name made lowercase.
-    projectname = models.CharField(db_column='projectName', max_length=50)  # Field name made lowercase.
-    description = models.TextField(blank=True, null=True)
-    creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
-    updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.
-    company = models.CharField(max_length=50, blank=True, null=True)
-    customerid = models.CharField(db_column='customerID', max_length=50, blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'Projects'
 
 
 # class Pumps(models.Model):
@@ -439,23 +472,6 @@ class Projects(models.Model):
 #         managed = False
 #         db_table = 'heatExchanger'
 
-
-# class Otheranalog(models.Model):
-#     componentid = models.CharField(db_column='componentID', primary_key=True, max_length=25)  # Field name made lowercase.
-#     exhibitid = models.ForeignKey(Exhibits, models.DO_NOTHING, db_column='exhibitID')  # Field name made lowercase.
-#     description = models.CharField(max_length=75, blank=True, null=True)
-#     size = models.CharField(max_length=50, blank=True, null=True)
-#     type = models.CharField(max_length=25, blank=True, null=True)
-#     location = models.CharField(max_length=25, blank=True, null=True)
-#     newitem = models.BooleanField(db_column='newItem')  # Field name made lowercase.
-#     olddescription = models.CharField(db_column='oldDescription', max_length=50, blank=True, null=True)  # Field name made lowercase.
-#     itemno = models.ForeignKey(Items, models.DO_NOTHING, db_column='itemNo', blank=True, null=True)  # Field name made lowercase.
-#     creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
-#     updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.
-
-#     class Meta:
-#         managed = False
-#         db_table = 'otherAnalog'
 
 
 # class Otherdigital(models.Model):

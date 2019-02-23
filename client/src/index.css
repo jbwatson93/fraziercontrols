@@ -12,3 +12,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.navbar{
+  width: 100%;
+  height: 60px;
+  background:blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin:0px;
+
+}
+
+.projectsLink{
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  border-left: solid white;
+}
+
+.homeWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.viewProjects{
+  display: flex;
+  flex-direction: row;
+}

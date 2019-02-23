@@ -8,7 +8,7 @@ from django.urls import path
 urlpatterns = [
     
     path('admin/', admin.site.urls),
-    path('api/v1', include("aquarium_app.urls"))
+    path('api/v1/', include("aquarium_app.urls"))
    
     
 ]
