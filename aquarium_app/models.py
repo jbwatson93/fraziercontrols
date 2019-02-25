@@ -91,7 +91,8 @@ class Exhibits(models.Model):
     creationDate = models.DateTimeField(db_column='creationDate', blank=True, null=True)
     updateDate = models.DateTimeField(db_column='updateDate', blank=True, null=True)
     type = models.CharField(max_length=25, blank=True, null=True)
-  
+    projectid = models.ForeignKey(Projects,  on_delete=models.CASCADE, db_column='projectID', related_name='Exhibits')
+    # projectid = models.ForeignKey(Projects,  on_delete=models.CASCADE, related_name='Exhibits')
 	
 	
 
@@ -101,7 +102,7 @@ class Exhibits(models.Model):
 
 class ProjectExhibits(models.Model):
     exhibitid = models.ForeignKey(Exhibits, models.DO_NOTHING, db_column='exhibitID')  # Field name made lowercase.
-    projectid = models.ForeignKey('Projects', models.DO_NOTHING, db_column='projectID', primary_key=True)  # Field name made lowercase.
+    projectid = models.ForeignKey(Projects, models.DO_NOTHING, db_column='projectID')  # Field name made lowercase.
     newconstruction = models.BooleanField(db_column='newConstruction', blank=True, null=True)  # Field name made lowercase.
     creationdate = models.DateTimeField(db_column='creationDate', blank=True, null=True)  # Field name made lowercase.
     updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)  # Field name made lowercase.

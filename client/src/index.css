@@ -16,16 +16,21 @@ code {
   width: 100%;
   height: 60px;
   background:blue;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
   color: white;
   margin:0px;
 
 }
 
 .projectsLink{
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
   text-decoration: none;
   color: white;
   border-left: solid white;
@@ -39,4 +44,51 @@ code {
 .viewProjects{
   display: flex;
   flex-direction: row;
+}
+
+.exhibitwrapper{
+  display: flex;
+ flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+.singleExhibit{
+  border: solid black;
+  text-align: center;
+  width: 150px;
+height: 150px;
+margin: 10px;
+background: linear-gradient(white,lightgrey);
+border-radius: 10px;
+}
+.exhibitHeader{
+  background: blue;
+  margin-top: 0px;
+  color:white;
+  height: 50px;
+
+}
+
+input{
+  width: 300px;
+  height: 20px;
+  margin:10px;
+}
+textarea{
+  width: 300px;
+  
+  margin:10px;
+}
+.projectHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:20px;
+}
+button{
+  width:100px;
+  height: 30px;
+  border-radius: 10px;
+  background: linear-gradient(white,rgb(177, 176, 176))
 }

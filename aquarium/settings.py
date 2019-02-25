@@ -91,7 +91,7 @@ DATABASES = {
         'HOST': "fraziercontrols.csizwoehkhka.us-east-2.rds.amazonaws.com",
         'USER': "jbwatson",
         'PASSWORD': "FUcontrols18",
-        'NAME': "controls",
+        'NAME': "controls_GUI",
         'OPTIONS':{
             'driver': 'ODBC Driver 17 for SQL Server'
         }
