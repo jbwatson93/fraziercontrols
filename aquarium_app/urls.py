@@ -7,5 +7,6 @@ router = routers.DefaultRouter()
 router.register("projects", views.ProjectView)
 router.register("exhibits", views.ExhibitView)
 router.register("projectexhibits", views.ProjectExhibitView)
+router.register("items", views.ItemsView)
 
 urlpatterns = [path("", include(router.urls))]

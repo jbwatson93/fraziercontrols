@@ -92,3 +92,12 @@ button{
   border-radius: 10px;
   background: linear-gradient(white,rgb(177, 176, 176))
 }
+.itemwrapper{
+  display: flex;
+  flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+.singleitem{
+  
+}

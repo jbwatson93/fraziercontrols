@@ -112,6 +112,26 @@ class ProjectExhibits(models.Model):
         db_table = 'Project_Exhibits'
         unique_together = (('projectid', 'exhibitid'),)
 
+class Items(models.Model):
+    itemNo = models.IntegerField(primary_key=True)
+    manufacturer =  models.CharField( max_length=25,blank=True, null=True)
+    manufactPartNo = models.CharField( max_length=100,blank=True, null=True)
+    description = models.CharField( max_length=225)
+    pipeSize = models.FloatField(default=0.0,blank=True, null=True)
+    HP = models.FloatField(default=0.0,blank=True, null=True)
+    diameter = models.FloatField(default=0.0,blank=True, null=True)
+    length = models.FloatField(default=0.0,blank=True, null=True)
+    width = models.FloatField(default=0.0, null=True)
+    height = models.FloatField(default=0.0,blank=True, null=True)
+    voltage = models.IntegerField(blank=True)
+    voltageType = models.CharField( max_length=2,blank=True, null=True)
+    creationdate = models.DateTimeField( blank=True, null=True)  # Field name made lowercase.
+    updatedate = models.DateTimeField(db_column='updateDate', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Items'
+
 
 
 
@@ -183,12 +203,6 @@ class ProjectExhibits(models.Model):
 #         db_table = 'Item_Subcat'
 #         unique_together = (('itemno', 'category', 'subcategory'),)
 
-
-# class Items(models.Model):
-
-#     class Meta:
-#         managed = False
-#         db_table = 'Items'
 
 
 # class Level(models.Model):

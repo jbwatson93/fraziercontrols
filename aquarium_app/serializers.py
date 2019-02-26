@@ -24,3 +24,10 @@ class ProjectExhibitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectExhibits
         fields = ('project', 'exhibits', 'exhibitid','projectid','newconstruction','creationdate','updatedate')
+
+class ItemsSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Items
+        fields = ('itemNo', 'manufacturer','manufactPartNo','description','pipeSize','HP','diameter','length',
+'width','height' ,'voltage','voltageType','creationdate','updatedate')

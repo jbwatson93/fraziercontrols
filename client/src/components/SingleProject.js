@@ -68,7 +68,7 @@ class SingleProject extends Component {
                 <div className='exhibitwrapper'> 
                 {this.state.project.Exhibits.map((exhibit, i) => {
                     return(
-                        <div className='singleExhibit'>
+                        <div className='singleExhibit' key={i}>
                             <Link to={`/exhibits/${exhibit.exhibitID}`} ><h3 className='exhibitHeader'>{exhibit.exhibitName}</h3></Link>
                             
                             <p>{exhibit.description}</p>

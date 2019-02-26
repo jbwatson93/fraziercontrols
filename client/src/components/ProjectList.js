@@ -20,7 +20,9 @@ class ProjectList extends Component {
             <div>
                 <h1>Projects</h1>
                 {this.state.projects.map((project,i)=>(
-                    <Project name={project.projectname}
+                    <Project 
+                    key={i}
+                    name={project.projectname}
                     description={project.description}
                     company={project.company}
                     projectid={project.projectid}/>

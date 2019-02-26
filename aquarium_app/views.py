@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Projects, Exhibits, ProjectExhibits
+from .models import Projects, Exhibits, ProjectExhibits, Items
 from .serializers import *
 
 # Create your views here.
@@ -15,3 +15,7 @@ class ExhibitView(viewsets.ModelViewSet):
 class ProjectExhibitView(viewsets.ModelViewSet):
     queryset = ProjectExhibits.objects.all()
     serializer_class = ProjectExhibitsSerializer
+
+class ItemsView(viewsets.ModelViewSet):
+    queryset = Items.objects.all()
+    serializer_class = ItemsSerializer

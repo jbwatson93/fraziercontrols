@@ -39,7 +39,7 @@ class Newproject extends Component {
             <div>
                 <form onSubmit={this.submitForm} >
                 <input  onChange={this.handleChange} type="text" name='projectname' placeholder="Project Name" /> <br />
-                <input  onChange={this.handleChange} type="text"maxlength="5" name='projectid' placeholder="Project ID" /> <br />
+                <input  onChange={this.handleChange} type="text"maxLength="5" name='projectid' placeholder="Project ID" /> <br />
                 <input  onChange={this.handleChange} type="text" name='company' placeholder="Company" /> <br />
                 <textarea   onChange={this.handleChange} rows='5' name='description' placeholder="Description" /> <br />
                 <input  onChange={this.handleChange} type="text" name='customerid' placeholder="Customer ID" /> <br />

@@ -6,6 +6,7 @@ import SingleProject from './components/SingleProject'
 import Newproject from './components/Newproject'
 import Navbar from './components/Navbar';
 import Exhibit from './components/Exhibit';
+import Items from './components/Items';
 class App extends Component {
   render() {
     return (
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/projects/:id" component={SingleProject}/>
           <Route exact path="/newproject" component={Newproject}/>
           <Route exact path="/exhibits/:id" component={Exhibit}/>
+          <Route exact path="/items/" component={Items}/>
         </Switch>
       </div>
     </Router>

@@ -21,7 +21,8 @@ class Exhibit extends Component {
     render() {
         return (
             <div>
-                
+                <h1>{this.state.exhibit.exhibitName}</h1>
+                <p>{this.state.exhibit.description}</p>
             </div>
         );
     }
