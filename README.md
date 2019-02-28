@@ -6,8 +6,10 @@ Frazier Controls's is a company that builds control systems for aquariums. The o
 ## Trello, Wireframes and ERD
 
 [Trello](https://trello.com/b/tJ16ehcM/frazier-controls)
-[Wireframes](/images/1wireframe.png)
+
 ![ERD](/images/erd.png)
+
+![Wireframes](/images/1wireframe.png)
 
 ## What I learned from this project
 * Deeper understanding of Django
