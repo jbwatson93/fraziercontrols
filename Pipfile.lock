@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "64404a5c85feda2d133d795295b37f26349d2bd578e67e0373e641f158b9b874"
+            "sha256": "1b87184331b3d0a697f5ebd3a4ef162a4ebc38db00e40455a06d3676e89d4a62"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,13 @@
             ],
             "index": "pypi",
             "version": "==0.3.1"
+        },
+        "django-pyodbc": {
+            "hashes": [
+                "sha256:0167b87e7b3c3ff70a3ffa4409d2a231399483575f302dc0d5187496fc529bec"
+            ],
+            "index": "pypi",
+            "version": "==1.1.3"
         },
         "django-pyodbc-azure": {
             "hashes": [

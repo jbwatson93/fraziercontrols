@@ -12,6 +12,7 @@ djangorestframework = "*"
 django-pyodbc-azure = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-pyodbc = "*"
 
 [requires]
 python_version = "3.7"
