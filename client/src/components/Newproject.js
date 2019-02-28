@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 class Newproject extends Component {
     state={
         project:{
@@ -51,7 +51,7 @@ class Newproject extends Component {
                  <input  onChange={this.handleChange} type="datetime-local" name='creationdate'  /> <br />
                
                 </form>
-                <button  onClick={this.submitForm}>Submit</button>
+               <Link to={'/projects/'}> <button  onClick={this.submitForm}>Submit</button></Link> 
             </div>
         );
     }

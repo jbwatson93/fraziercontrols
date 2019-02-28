@@ -15,22 +15,25 @@ code {
 .navbar{
   width: 100%;
   height: 60px;
-  background:blue;
+  background:url("https://images.unsplash.com/photo-1543226414-7912945917eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   /* display: flex;
   justify-content: space-between;
   align-items: center; */
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
   color: white;
   margin:0px;
 
+}
+.navbar h1{
+  margin: 0px;
 }
 
 .projectsLink{
   display: flex;
   justify-content: center;
   align-items: center;
- 
+ padding: 0px;
   text-decoration: none;
   color: white;
   border-left: solid white;
@@ -54,16 +57,17 @@ code {
   
 }
 .singleExhibit{
-  border: solid black;
+  border: solid black 1px;
   text-align: center;
   width: 150px;
 height: 150px;
 margin: 10px;
 background: linear-gradient(white,lightgrey);
-border-radius: 10px;
+border-radius: 5px;
 }
 .exhibitHeader{
-  background: blue;
+  background: url("https://images.unsplash.com/photo-1543226414-7912945917eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-position: right;
   margin-top: 0px;
   color:white;
   height: 50px;
@@ -89,7 +93,7 @@ textarea{
 button{
   width:100px;
   height: 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   background: linear-gradient(white,rgb(177, 176, 176))
 }
 .itemwrapper{
@@ -98,6 +102,46 @@ button{
    justify-content: center;
    align-items: center;
 }
-.singleitem{
-  
+.singleproject{
+  border: solid black;
+  text-align: center;
+  width: 300px;
+height: 150px;
+margin: 10px;
+background: linear-gradient(white,lightgrey);
+border-radius: 10px;
 }
+.singleitem{
+  border: solid black;
+  text-align: center;
+  width: 45%;
+height: 50px;
+margin: 0px;
+background: linear-gradient(white,lightgrey);
+border-radius: 10px;
+}
+.singleitem h3{
+  margin: 0px;
+}
+.formlayout{
+  display: grid;
+  width:601px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr 1fr 1fr
+}
+.formwrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchbar{
+  width:100%;
+  display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 20px;
+}
+/* .backpic{
+  background: url("https://images.unsplash.com/photo-1428948304740-392e214d312f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80");
+  background-size: cover;
+} */

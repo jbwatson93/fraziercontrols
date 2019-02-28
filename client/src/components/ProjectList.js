@@ -19,6 +19,7 @@ class ProjectList extends Component {
         return (
             <div>
                 <h1>Projects</h1>
+                <div className='itemwrapper'>
                 {this.state.projects.map((project,i)=>(
                     <Project 
                     key={i}
@@ -27,6 +28,7 @@ class ProjectList extends Component {
                     company={project.company}
                     projectid={project.projectid}/>
                 ))}
+                </div>
             </div>
         );
     }

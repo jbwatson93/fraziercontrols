@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-class Items extends Component {
-    state={
-        items: [],
-        displayForm: false,
-        searched: false,
-        search: '',
-        item: {
+
+class Item extends Component {
+    state = {
+        displayForm:false,
+        item:{
             itemNo: '',
             manufacturer: '',
             manufactPartNo:'',
@@ -23,13 +21,15 @@ class Items extends Component {
             creationdate:'',
         }
     }
+
     componentDidMount(){
-        this.getItems()
+        this.getItem()
     }
-    getItems = () => {
-        axios.get('/api/v1/items')
+    getItem = () => {
+        axios.get(`/api/v1/items/${this.props.match.params.id}`)
             .then((res) => {
-                 this.setState({ items: res.data })
+                 this.setState({ item: res.data })
+                 
             })
     }
     toggleForm = () =>{
@@ -38,62 +38,40 @@ class Items extends Component {
     submitForm = (event) =>{
         event.preventDefault()
         let newitem = {...this.state.item}
-        axios.post('/api/v1/items/', newitem)
+        axios.patch(`/api/v1/items/${this.props.match.params.id}/`, newitem)
         this.toggleForm()
         
         
         
     }
-    // searchLogic =(search) =>{
-    //     if(search === ''){
-    //         this.getItems()}
-    //     else{
-            
-    //             return(search)
-            
-            
-    //     }
-        
-    // }
     handleChange = (event) => {
         let newitem = { ...this.state.item }
         newitem[event.target.name] = event.target.value
         this.setState({ item: newitem });
     }
-    searchItems= () => {
-        const sorted = this.state.items.filter(item => item.description.includes( this.state.search ))
-        
-          this.setState({items: sorted, searched:true})
-        
-      }
-      sortAgain = () => {
-          this.getItems()
-          this.setState({searched: false})
-      }
-      handleChange2 = (event) => {
-         const newsearch = event.target.value
-        this.setState({ search: newsearch })
-        
-        
+    deleteItem = () => {
+        axios.delete(`/api/v1/items/${this.props.match.params.id}/`)
+            
     }
-
+    
     render() {
         return (
             <div>
                 <div className='projectHeader'>
-                <h1>Items</h1>
-                <div>
-                <button onClick={this.toggleForm}>New Item</button>
+                <h1>{this.state.item.description}</h1>
+                <button onClick={this.toggleForm}>Edit Item</button>
                 </div>
-               
-                </div>
-                <div>
-                <div className='searchbar'> {this.state.searched? <button onClick={this.sortAgain}>Search Again</button>:<div >
-                    <input onChange={this.handleChange2} type='text' name='search' placeholder='Search'/>
-                    <button onClick={this.searchItems}>Search</button>
-                    </div> 
-                    }</div>
-                </div>
+                <p>Creation Date: {this.state.item.creationdate}</p>
+                <p>Item Number: {this.state.item.itemNo}</p>
+                <p>Manufacturer: {this.state.item.manufacturer}</p>
+                <p>Manufacturer Part Number: {this.state.item.manufactPartNo}</p>
+                <p>Pipe Size: {this.state.item.pipeSize}</p>
+                <p>HP: {this.state.item.HP}</p>
+                <p>Diameter: {this.state.item.diameter}</p>
+                <p>Width: {this.state.item.width}</p>
+                <p>Heignt: {this.state.item.heignt}</p>
+                <p>Voltage: {this.state.item.voltage}</p>
+                <p>Voltage Type: {this.state.item.voltageType}</p>
                 {this.state.displayForm?<div className='formwrap'>
                 <div className='formlayout'> 
                     <input  onChange={this.handleChange} type="text" name='description' placeholder="Description" /> 
@@ -117,23 +95,13 @@ class Items extends Component {
                  <input  onChange={this.handleChange} type="datetime-local" name='creationdate'  /> <br />
                  </div>
                 
-                 <button  onClick={this.submitForm}> Create Item </button>
+                 <button  onClick={this.submitForm}> Update Item </button>
                  </div>
                      </div>: null}
-            <div className='itemwrapper'>
-                {this.state.items.map((item, i) => {
-                    return(
-                        <div className='singleitem' key={i}>
-                            <Link to={`/items/${item.itemNo}`} ><h3 className=''>{item.description}</h3></Link>
-                            
-        
-                        </div>
-                    )
-                })}
-            </div>
+                     <Link to='/items'>  <button onClick={this.deleteItem}>  Delete  </button></Link> 
             </div>
         );
     }
 }
 
-export default Items;
+export default Item;

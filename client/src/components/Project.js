@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 class Project extends Component {
     render() {
         return (
-            <div>
-                <Link to={`/projects/${this.props.projectid}`} ><h1>{this.props.name}</h1></Link>
+           
+            <div className='singleproject'>
+                <Link to={`/projects/${this.props.projectid}`} ><h2>{this.props.name}</h2></Link>
                 <p>{this.props.description}</p>
             </div>
+           
         );
     }
 }

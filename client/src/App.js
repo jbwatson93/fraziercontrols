@@ -7,11 +7,14 @@ import Newproject from './components/Newproject'
 import Navbar from './components/Navbar';
 import Exhibit from './components/Exhibit';
 import Items from './components/Items';
+import Item from './components/Item';
+
+
 class App extends Component {
   render() {
     return (
       <Router>
-      <div>
+      <div className='backpic'>
         <Navbar/>
         
         <Switch>
@@ -21,6 +24,7 @@ class App extends Component {
           <Route exact path="/newproject" component={Newproject}/>
           <Route exact path="/exhibits/:id" component={Exhibit}/>
           <Route exact path="/items/" component={Items}/>
+          <Route exact path="/items/:id" component={Item}/>
         </Switch>
       </div>
     </Router>

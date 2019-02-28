@@ -9,6 +9,7 @@ class Navbar extends Component {
                 
                 <Link to='/newproject' className='projectsLink'><h1>New</h1></Link>
                 <Link to='/projects' className='projectsLink'><h1>Projects</h1></Link>
+                <Link to='/items' className='projectsLink'><h1>Items</h1></Link>
                
             </div>
         );
