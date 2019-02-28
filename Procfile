@@ -1,1 +1,1 @@
-web: gunicorn aquarium_app.wsgi --log-file -
+web: gunicorn aquarium.wsgi --log-file -
