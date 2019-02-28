@@ -7,12 +7,11 @@ verify_ssl = true
 
 [packages]
 django = "*"
-django-pyodbc-azure = "*"
 django-extensions = "*"
 djangorestframework = "*"
+django-pyodbc-azure = "*"
 gunicorn = "*"
 django-heroku = "*"
-corsheaders = "*"
 
 [requires]
 python_version = "3.7"
