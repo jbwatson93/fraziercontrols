@@ -97,7 +97,7 @@ DATABASES = {
             'driver': 'ODBC Driver 17 for SQL Server'
         }
         
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       
     }
 }
 
